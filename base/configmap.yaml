@@ -1,0 +1,15 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: controllers-environment
+data:
+  PORT: '80'
+  SWAGGER_HOST: 'controllers-swagger-svc'
+  SWAGGER_PATH: 'api'
+  MINDBOX_GRPC_SRV: 'mindbox-srv-go-1:50051'
+  META_GRPC_SRV: 'meta-srv-go-1:50051'
+  FEEDBACKS_GRPC_SRV: 'feedbacks-srv-go-1:50051'
+  MONGO_URL: 'mongodb://mongodb-svc:27017/'
+  VERSION: '0'
+  MINDBOX_USER_ID_PREFIX: 'stage_'
+  PRODUCTION: 'true'

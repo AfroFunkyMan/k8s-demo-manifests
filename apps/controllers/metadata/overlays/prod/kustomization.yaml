@@ -1,0 +1,7 @@
+bases:
+  - ../../base
+commonAnnotations:
+  co.elastic.logs/enabled: 'true'
+  co.elastic.logs/json.keys_under_root: 'true'
+patchesStrategicMerge:
+  - use_prod_config_map.patch.yaml

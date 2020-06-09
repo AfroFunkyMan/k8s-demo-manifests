@@ -1,0 +1,75 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-controllers
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/issuer: letsencrypt-prod
+    nginx.org/rewrites: >-
+      serviceName=controllers-swagger-svc-dev rewrite=/api;
+      serviceName=controllers-products-svc-dev rewrite=/api;
+      serviceName=controllers-cart-svc-dev rewrite=/api;
+      serviceName=controllers-profile-svc-dev rewrite=/api;
+      serviceName=controllers-reviews-svc-dev rewrite=/api;
+      serviceName=controllers-orders-svc-dev rewrite=/api;
+      serviceName=controllers-metadata-svc-dev rewrite=/api;
+      serviceName=controllers-locations-svc-dev rewrite=/api;
+      serviceName=controllers-notification-svc-dev rewrite=/api;
+      serviceName=controllers-authorization-svc-dev rewrite=/api;
+spec:
+  tls:
+    - hosts:
+        - dev.core.12stz.com
+      secretName: dev-core-12stz-com-tls
+  rules:
+    - host: dev.admin.core.12stz.com
+      http:
+        paths:
+            - path: /
+              backend:
+                serviceName: admin-dashboard-svc-dev
+                servicePort: 80
+    - host: dev.core.12stz.com
+      http:
+        paths:
+          - path: /swagger
+            backend:
+              serviceName: controllers-swagger-svc-dev
+              servicePort: 80
+          - path: /api/products
+            backend:
+              serviceName: controllers-products-svc-dev
+              servicePort: 80
+          - path: /api/cart
+            backend:
+              serviceName: controllers-cart-svc-dev
+              servicePort: 80
+          - path: /api/profile
+            backend:
+              serviceName: controllers-profile-svc-dev
+              servicePort: 80
+          - path: /api/reviews
+            backend:
+              serviceName: controllers-reviews-svc-dev
+              servicePort: 80
+          - path: /api/orders
+            backend:
+              serviceName: controllers-orders-svc-dev
+              servicePort: 80
+          - path: /api/metadata
+            backend:
+              serviceName: controllers-metadata-svc-dev
+              servicePort: 80
+          - path: /api/locations
+            backend:
+              serviceName: controllers-locations-svc-dev
+              servicePort: 80
+          - path: /api/notification
+            backend:
+              serviceName: controllers-notification-svc-dev
+              servicePort: 80
+          - path: /api/authorization
+            backend:
+              serviceName: controllers-authorization-svc-dev
+              servicePort: 80

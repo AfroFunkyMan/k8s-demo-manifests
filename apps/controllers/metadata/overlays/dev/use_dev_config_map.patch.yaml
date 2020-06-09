@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-metadata-deployment
+  labels:
+    app: controllers-metadata
+spec:
+  template:
+    spec:
+      containers:
+        - name: controllers-metadata
+          envFrom:
+            - configMapRef:
+                name: controllers-environment-dev

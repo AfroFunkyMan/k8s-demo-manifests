@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-authorization-deployment
+  labels:
+    app: controllers-authorization
+spec:
+  template:
+    spec:
+      containers:
+        - name: controllers-authorization
+          imagePullPolicy: Never

@@ -1,0 +1,9 @@
+nameSuffix: -dev
+commonLabels:
+  environment: dev
+patchesStrategicMerge:
+  - configmap.patch.yaml
+resources:
+  - ingress.yaml
+bases:
+  - ../../base

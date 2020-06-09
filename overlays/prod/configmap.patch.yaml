@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: controllers-environment
+data:
+  SWAGGER_HOST: 'controllers-swagger-svc-prod'
+  MONGO_URL: 'mongodb://mongodb-svc-prod:27017'
+  MINDBOX_GRPC_SRV: 'mindbox-srv-go-v1-prod:50051'
+  META_GRPC_SRV: 'meta-srv-go-v1-prod:50051'
+  FEEDBACKS_GRPC_SRV: 'feedbacks-srv-go-v1-prod:50051'
+  MINDBOX_USER_ID_PREFIX: ''

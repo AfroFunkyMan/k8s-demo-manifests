@@ -1,0 +1,6 @@
+bases:
+  - ../../base
+patchesStrategicMerge:
+  - use_local_images.patch.yaml
+  - use_local_config_map.patch.yaml
+

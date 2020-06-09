@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+commonAnnotations:
+  co.elastic.logs/enabled: 'true'
+  co.elastic.logs/json.keys_under_root: 'true'
+patchesStrategicMerge:
+  - use_dev_config_map.patch.yaml
+  - always_pull_image.patch.yaml

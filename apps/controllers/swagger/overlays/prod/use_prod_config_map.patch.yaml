@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-swagger-deployment
+  labels:
+    app: controllers-swagger
+spec:
+  template:
+    spec:
+      containers:
+        - name: controllers-swagger
+          envFrom:
+            - configMapRef:
+                name: controllers-environment-prod

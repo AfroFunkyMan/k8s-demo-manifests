@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-dashboard-deployment
+  labels:
+    app: admin-dashboard
+spec:
+  template:
+    spec:
+      containers:
+        - name: admin-dashboard
+          imagePullPolicy: Always

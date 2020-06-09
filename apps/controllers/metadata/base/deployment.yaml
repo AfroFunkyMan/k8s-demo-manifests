@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-metadata-deployment
+  labels:
+    app: controllers-metadata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controllers-metadata
+  template:
+    metadata:
+      labels:
+        app: controllers-metadata
+    spec:
+      containers:
+        - name: controllers-metadata
+          image: cr.yandex/crpio465qcfelrmo3fv8/esb-monorepo/controllers-metadata:latest
+          ports:
+            - containerPort: 80

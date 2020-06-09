@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-locations-deployment
+  labels:
+    app: controllers-locations
+spec:
+  template:
+    spec:
+      containers:
+        - name: controllers-locations
+          envFrom:
+            - configMapRef:
+                name: controllers-environment-prod

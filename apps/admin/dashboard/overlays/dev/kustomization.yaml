@@ -1,0 +1,4 @@
+bases:
+  - ../../base
+patchesStrategicMerge:
+  - always_pull_image.patch.yaml

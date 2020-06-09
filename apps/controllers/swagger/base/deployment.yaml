@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-swagger-deployment
+  labels:
+    app: controllers-swagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controllers-swagger
+  template:
+    metadata:
+      labels:
+        app: controllers-swagger
+    spec:
+      containers:
+        - name: controllers-swagger
+          image: cr.yandex/crpio465qcfelrmo3fv8/esb-monorepo/controllers-swagger:latest
+          ports:
+            - containerPort: 80

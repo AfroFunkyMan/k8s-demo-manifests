@@ -1,0 +1,78 @@
+version: "3.3"
+services:
+  controllers-authorization:
+    build:
+      context: .
+      dockerfile: apps/controllers/authorization/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-authorization:$IMAGE_VERSION
+  controllers-notification:
+    build:
+      context: .
+      dockerfile: apps/controllers/notification/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-notification:$IMAGE_VERSION
+  controllers-locations:
+    build:
+      context: .
+      dockerfile: apps/controllers/locations/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-locations:$IMAGE_VERSION
+  controllers-products:
+    build:
+      context: .
+      dockerfile: apps/controllers/products/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-products:$IMAGE_VERSION
+  controllers-metadata:
+    build:
+      context: .
+      dockerfile: apps/controllers/metadata/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-metadata:$IMAGE_VERSION
+  controllers-swagger:
+    build:
+      context: .
+      dockerfile: apps/controllers/swagger/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-swagger:$IMAGE_VERSION
+  controllers-profile:
+    build:
+      context: .
+      dockerfile: apps/controllers/profile/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-profile:$IMAGE_VERSION
+  controllers-reviews:
+    build:
+      context: .
+      dockerfile: apps/controllers/reviews/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-reviews:$IMAGE_VERSION
+  controllers-orders:
+    build:
+      context: .
+      dockerfile: apps/controllers/orders/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-orders:$IMAGE_VERSION
+  controllers-cart:
+    build:
+      context: .
+      dockerfile: apps/controllers/cart/Dockerfile
+      args:
+        - DEP_IMAGE=production-dependencies:latest
+    image: controllers-cart:$IMAGE_VERSION
+  admin-dashboard:
+    build:
+      context: .
+      dockerfile: apps/admin/dashboard/Dockerfile
+    image: admin-dashboard:$IMAGE_VERSION
+

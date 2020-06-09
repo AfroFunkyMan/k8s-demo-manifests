@@ -1,0 +1,9 @@
+nameSuffix: -prod
+commonLabels:
+  environment: prod
+patchesStrategicMerge:
+  - configmap.patch.yaml
+resources:
+  - ingress.yaml
+bases:
+  - ../../base

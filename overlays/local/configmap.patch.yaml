@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: controllers-environment
+data:
+  SWAGGER_HOST: 'controllers-swagger-svc-local'
+  MONGO_URL: 'mongodb://mongodb-svc-local:27017'

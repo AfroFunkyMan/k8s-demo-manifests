@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers-authorization-deployment
+  labels:
+    app: controllers-authorization
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controllers-authorization
+  template:
+    metadata:
+      labels:
+        app: controllers-authorization
+    spec:
+      containers:
+        - name: controllers-authorization
+          image: cr.yandex/crpio465qcfelrmo3fv8/esb-monorepo/controllers-authorization:latest
+          ports:
+            - containerPort: 80

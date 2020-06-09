@@ -1,0 +1,21 @@
+nameSuffix: -local
+commonLabels:
+  environment: local
+patchesStrategicMerge:
+  - configmap.patch.yaml
+resources:
+  - mongodb.yaml
+  - ingress.yaml
+bases:
+  - ../../base
+  - ../../apps/controllers/cart/overlays/local
+  - ../../apps/controllers/authorization/overlays/local
+  - ../../apps/controllers/locations/overlays/local
+  - ../../apps/controllers/metadata/overlays/local
+  - ../../apps/controllers/notification/overlays/local
+  - ../../apps/controllers/orders/overlays/local
+  - ../../apps/controllers/products/overlays/local
+  - ../../apps/controllers/profile/overlays/local
+  - ../../apps/controllers/reviews/overlays/local
+  - ../../apps/controllers/swagger/overlays/local
+

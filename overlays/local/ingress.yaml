@@ -1,0 +1,55 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-controllers
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    ingress.kubernetes.io/ssl-redirect: "False"
+    nginx.org/redirect-to-https: "False"
+    nginx.ingress.kubernetes.io/rewrite-target: "/api/$2"
+spec:
+  rules:
+    - host: esb-monorepo.info
+      http:
+        paths:
+          - path: /swagger(/|$)(.*)
+            backend:
+              serviceName: controllers-swagger-svc-local
+              servicePort: 80
+          - path: /api/products(/|$)(.*)
+            backend:
+              serviceName: controllers-products-svc-local
+              servicePort: 80
+          - path: /api/cart(/|$)(.*)
+            backend:
+              serviceName: controllers-cart-svc-local
+              servicePort: 80
+          - path: /api/profile(/|$)(.*)
+            backend:
+              serviceName: controllers-profile-svc-local
+              servicePort: 80
+          - path: /api/reviews(/|$)(.*)
+            backend:
+              serviceName: controllers-reviews-svc-local
+              servicePort: 80
+          - path: /api/orders(/|$)(.*)
+            backend:
+              serviceName: controllers-orders-svc-local
+              servicePort: 80
+          - path: /api/metadata(/|$)(.*)
+            backend:
+              serviceName: controllers-metadata-svc-local
+              servicePort: 80
+          - path: /api/locations(/|$)(.*)
+            backend:
+              serviceName: controllers-locations-svc-local
+              servicePort: 80
+          - path: /api/notification(/|$)(.*)
+            backend:
+              serviceName: controllers-notification-svc-local
+              servicePort: 80
+          - path: /api/authorization(/|$)(.*)
+            backend:
+              serviceName: controllers-authorization-svc-local
+              servicePort: 80
